@@ -1,0 +1,45 @@
+/*
+ * This is a helper file written to expand themes.
+ * author: Tsukumo, 2014
+ */
+
+#ifdef THEME
+
+#ifndef THEME_RED
+    #error THEME: No red color defined
+#endif
+.theme-THEME .red
+{
+    color:THEME_RED;
+}
+.theme-THEME .red-background
+{
+    background:THEME_RED;
+}
+#undef THEME_RED
+
+#ifndef THEME_ORANGE
+    #error THEME: No orange color defined
+#endif
+.theme-THEME .orange
+{
+    color:THEME_ORANGE;
+}
+.theme-THEME .orange-background
+{
+    background:THEME_ORANGE;
+}
+#undef THEME_ORANGE
+
+
+#define THEME_YELLOW #F1C40F
+#define THEME_GREEN  #2ECC71
+#define THEME_CYAN   #1ABC9C
+#define THEME_BLUE   #3498DB
+#define THEME_VIOLET #9B59B6
+
+#define THEME_WHITE  #ECF0F1
+#define THEME_GRAY   #95A5A6
+#define THEME_BLACK  #34495E
+#undef THEME
+#endif
