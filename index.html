@@ -5,6 +5,7 @@
     <title>WAM-LIBS</title>
     <link rel="stylesheet" href="index.css" />
     <script src="http://code.jquery.com/jquery-git2.js"></script>
+    <script src="jq/jquery.accordion.js"></script>
 </head>
 <body class="font-helvetica font-light color-flat-black">
     <div class="ribbon">
@@ -27,14 +28,64 @@
         <span id="arrow">&gt;</span>
         WAM
     </a>
+
+    <section id="files">
+        <ul id="jswrapper">
+           <li>
+               <a href="#js" class="title">JS</a>
+               <ul id="jsfiles">
+
+               </ul>
+           </li>
+        </ul>
+        <ul id="csswrapper">
+           <li>
+               <a href="#css" class="title">CSS</a>
+               <ul id="cssfiles">
+
+               </ul>
+           </li>
+        </ul>
+    </section>
     
     <script>
-        $.ajax({
-            url:'https://github.com/Tsukumokun/wam-libs/file-list/master/css',
-            success:function(data)
-            {
-                console.log(data);
-            }
-        });
+
+function counts(){
+    this.cnt = 1;
+}
+
+function getdata(from,to,count,done){
+    $.ajax({
+        url:from,
+        success:function(data)
+        {
+            data.forEach(function(item){
+                if(item["type"]=="dir")
+                {
+                    $(to).append("<li><a class='title' href='#"+item["name"]+"'>"+item["name"]+"</a><ul id="+item["sha"]+"></ul></li>")
+                    getdata(from+"/"+item["name"],"#"+item["sha"],count,done)
+                    count.cnt++;
+                }
+                else
+                {
+                    var href = item["html_url"]
+                                    .replace("/blob","")
+                                    .replace("://","://raw.")
+
+                    $(to).append('<li><a href="'+href+'" download><img src="res/download.png">'+item["name"]+'</a></li>')
+                }
+            })
+            count.cnt--;
+            console.log(from+count.cnt);
+            if(count.cnt==0)
+                setTimeout(done,500)
+        }
+    })
+}
+var jscnt = new counts()
+var csscnt = new counts()
+getdata("https://api.github.com/repos/Tsukumokun/wam-libs/contents/js","#jsfiles",jscnt,function(){$("#jswrapper").accordion()})
+getdata("https://api.github.com/repos/Tsukumokun/wam-libs/contents/css","#cssfiles",csscnt,function(){$("#csswrapper").accordion()})
+        
     </script>
 </html>
