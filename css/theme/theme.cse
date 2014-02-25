@@ -31,15 +31,109 @@
 }
 #undef THEME_ORANGE
 
+#ifndef THEME_YELLOW
+    #error THEME: No yellow color defined
+#endif
+.theme-THEME .yellow
+{
+    color:THEME_YELLOW;
+}
+.theme-THEME .yellow-background
+{
+    background:THEME_YELLOW;
+}
+#undef THEME_YELLOW
 
-#define THEME_YELLOW #F1C40F
-#define THEME_GREEN  #2ECC71
-#define THEME_CYAN   #1ABC9C
-#define THEME_BLUE   #3498DB
-#define THEME_VIOLET #9B59B6
+#ifndef THEME_GREEN
+    #error THEME: No green color defined
+#endif
+.theme-THEME .green
+{
+    color:THEME_GREEN;
+}
+.theme-THEME .green-background
+{
+    background:THEME_GREEN;
+}
+#undef THEME_GREEN
 
-#define THEME_WHITE  #ECF0F1
-#define THEME_GRAY   #95A5A6
-#define THEME_BLACK  #34495E
+#ifndef THEME_CYAN
+    #error THEME: No cyan color defined
+#endif
+.theme-THEME .cyan
+{
+    color:THEME_CYAN;
+}
+.theme-THEME .cyan-background
+{
+    background:THEME_CYAN;
+}
+#undef THEME_CYAN
+
+#ifndef THEME_BLUE
+    #error THEME: No blue color defined
+#endif
+.theme-THEME .blue
+{
+    color:THEME_BLUE;
+}
+.theme-THEME .blue-background
+{
+    background:THEME_BLUE;
+}
+#undef THEME_BLUE
+
+#ifndef THEME_VIOLET
+    #error THEME: No violet color defined
+#endif
+.theme-THEME .violet
+{
+    color:THEME_VIOLET;
+}
+.theme-THEME .violet-background
+{
+    background:THEME_VIOLET;
+}
+#undef THEME_VIOLET
+
+#ifndef THEME_WHITE
+    #error THEME: No white color defined
+#endif
+.theme-THEME .white
+{
+    color:THEME_WHITE;
+}
+.theme-THEME .white-background
+{
+    background:THEME_WHITE;
+}
+#undef THEME_WHITE
+
+#ifndef THEME_GRAY
+    #error THEME: No gray color defined
+#endif
+.theme-THEME .gray
+{
+    color:THEME_GRAY;
+}
+.theme-THEME .gray-background
+{
+    background:THEME_GRAY;
+}
+#undef THEME_GRAY
+
+#ifndef THEME_BLACK
+    #error THEME: No black color defined
+#endif
+.theme-THEME .black
+{
+    color:THEME_BLACK;
+}
+.theme-THEME .black-background
+{
+    background:THEME_BLACK;
+}
+#undef THEME_BLACK
+
 #undef THEME
 #endif
