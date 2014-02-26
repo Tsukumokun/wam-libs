@@ -9,7 +9,8 @@
 #endif
 
 #ifdef THEME_DURATION
-
+#ifndef THEME_DURATION_ONCE
+#define THEME_DURATION_ONCE
 .theme-THEME .red,     .theme-THEME.red,
 .theme-THEME .orange,  .theme-THEME.orange,
 .theme-THEME .yellow,  .theme-THEME.yellow,
@@ -37,7 +38,7 @@
     transition(background THEME_DURATION);
 }
 #endif
-
+#endif
 
 #ifndef THEME_RED
 #    error THEME: No red color defined
